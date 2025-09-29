@@ -1,0 +1,47 @@
+body {
+    background-color: #FDFBD4;
+    color: #a55800;
+    margin: 0;
+    padding: 20px;
+}
+
+form button {
+    background-color: #a55800;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.brewery-card { 
+    border: 1px solid #a55800; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
+
+}
+
+form { 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    border: 1px solid #a55800; 
+}
+
+form button:hover {background-color: #cf6f00;}
+input[type="text"] { padding: 8px; margin-right: 10px; }
+button { padding: 8px 15px; cursor: pointer; }
+.brewery-card h3 { margin-top: 0; }
+.error { color: red; font-weight: bold; }
+
+/* Responsive design */
+@media (max-width: 800px) 
+{
+    .container {padding: 10px;}
+    h1 {font-size: 24px;}
+}

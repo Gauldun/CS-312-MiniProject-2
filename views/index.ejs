@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Integration</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>City Brewery Finder</h1>
+
+        <form action="/search" method="POST">
+            <label for="city">Search by City:</label>
+            <input type="text" id="city" name="city" placeholder="Location" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <% if (breweries && breweries.length > 0) { %>
+            <h2>Found <%= breweries.length %> Breweries:</h2>
+            <% breweries.forEach(brewery => { %>
+                <div class="brewery-card">
+                    <h3><%= brewery.name %></h3>
+                    <p>
+                        <b> Brewery Type: <%= brewery.brewery_type %> </b><br>
+                        Address: <%= brewery.street %>, <%= brewery.city %>, <%= brewery.state %>
+                        <% if (brewery.phone) { %> 
+                            <br>Phone: <%= brewery.phone %>
+                        <% } %>
+                        <% if (brewery.website_url) { %>
+                            <br>Website: <a href="<%= brewery.website_url %>" target="_blank"><%= brewery.website_url %></a>
+                        <% } %>
+                    </p>
+                </div>
+            <% }); %>
+        <% } else if (breweries && breweries.length === 0) { %>
+            <p>No breweries found for your search. Check your input!</p>
+        <% } %>
+
+    </div>
+</body>
+</html>
